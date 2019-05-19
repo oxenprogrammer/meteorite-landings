@@ -21,9 +21,9 @@ export class MeteotriteDataSource implements DataSource<any> {
     this.loadingSubject.complete();
   }
 
-  loadMeteotriteData(filter = '', sortDirection = 'name', pageIndex = 0, pageSize = 100) {
+  loadMeteotriteData(sortDirection = 'name', pageIndex = 0, pageSize = 100) {
     this.loadingSubject.next(true);
-    this.appService.getData(filter, sortDirection, pageIndex, pageSize)
+    this.appService.getData(sortDirection, pageIndex, pageSize)
       .pipe(
         catchError(() => of([])),
         finalize(() => this.loadingSubject.next(false))
