@@ -23,7 +23,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.dataSource = new MeteotriteDataSource(this.appService);
-    this.dataSource.loadMeteotriteData('name', 0, 100);
+    this.dataSource.loadMeteotriteData('name', 0, 10);
   }
 
   ngAfterViewInit(): void {
