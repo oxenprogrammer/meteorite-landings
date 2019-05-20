@@ -109,5 +109,18 @@ describe('AppService', () => {
       });
       expect(response).toEqual(responseData);
     }));
+
+    it('should return name_count collection', () => {
+      const responseData = [{
+        name_count: 20000
+      }];
+
+      let response;
+      spyOn(appService, 'countData').and.returnValue(of(responseData));
+      appService.countData().subscribe(res => {
+        response = res;
+      });
+      expect(response).toEqual(responseData);
+    });
   });
 });
