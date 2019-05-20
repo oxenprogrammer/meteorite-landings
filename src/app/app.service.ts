@@ -30,4 +30,14 @@ export class AppService {
       );
   }
 
+  countData(count = 'select count(name)'): Observable<any> {
+    return this.http.get<any>(this.url, {params: new HttpParams().set('$query', count)})
+      .pipe(
+        tap((data: any) => {
+          console.log('my count', data);
+          return of(data);
+        })
+      );
+  }
+
 }
