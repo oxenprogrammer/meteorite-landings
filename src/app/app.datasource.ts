@@ -22,7 +22,7 @@ export class MeteotriteDataSource implements DataSource<any> {
     this.loadingSubject.complete();
   }
 
-  loadMeteotriteData(filter = `name like "%%"` ,sortDirection = 'name', pageIndex = 0, pageSize = 100) {
+  loadMeteotriteData(filter = `lower(name ) like lower("%%")` ,sortDirection = 'name', pageIndex = 0, pageSize = 100) {
     this.loadingSubject.next(true);
     this.appService.getData(filter, sortDirection, pageIndex, pageSize)
       .pipe(
