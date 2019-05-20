@@ -19,11 +19,12 @@ export class AppComponent implements OnInit, AfterViewInit {
   dataSource: MeteotriteDataSource;
   displayedColumns: string[] = ['name', 'id', 'nametype', 'recclass', 'mass', 'fall', 'year', 'latitude', 'longitude'];
   space = ' ';
+  length: number;
 
   constructor(private appService: AppService) {}
 
   ngOnInit(): void {
-
+    this.getCount();
     this.dataSource = new MeteotriteDataSource(this.appService);
     this.dataSource.loadMeteotriteData(`lower(name ) like lower("%%")`, 'name', 0, 50);
   }
@@ -57,5 +58,14 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.paginator.pageIndex,
       this.paginator.pageSize
     );
+  }
+
+  getCount() {
+    this.appService.countData()
+      .subscribe((data: any) => {
+        data.map((length: any) => {
+          this.length = length.count_name;
+        });
+      });
   }
 }
