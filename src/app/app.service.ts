@@ -14,7 +14,7 @@ export class AppService {
 
   constructor(private http: HttpClient) { }
 
-  getData(filter = `lower(name ) like lower("%%")`, sortOrder = 'name', pageNumber = 0, pageSize = 100): Observable<any> {
+  getData(filter = `lower(name ) like lower("%%")`, sortOrder = 'name', pageNumber = 0, pageSize = 50): Observable<any> {
     return this.http.get<any>(this.url, {
       params: new HttpParams()
         .set('$where', filter)
