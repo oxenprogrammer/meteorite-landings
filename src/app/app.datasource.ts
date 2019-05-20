@@ -5,6 +5,7 @@ import { catchError, finalize } from 'rxjs/operators';
 
 
 export class MeteotriteDataSource implements DataSource<any> {
+  space = ' ';
   private meteotriteDataSubject = new BehaviorSubject<any>([]);
   private loadingSubject = new BehaviorSubject<boolean>(false);
 
@@ -21,9 +22,9 @@ export class MeteotriteDataSource implements DataSource<any> {
     this.loadingSubject.complete();
   }
 
-  loadMeteotriteData(sortDirection = 'name', pageIndex = 0, pageSize = 100) {
+  loadMeteotriteData(filter = `name like "%%"` ,sortDirection = 'name', pageIndex = 0, pageSize = 100) {
     this.loadingSubject.next(true);
-    this.appService.getData(sortDirection, pageIndex, pageSize)
+    this.appService.getData(filter, sortDirection, pageIndex, pageSize)
       .pipe(
         catchError(() => of([])),
         finalize(() => this.loadingSubject.next(false))

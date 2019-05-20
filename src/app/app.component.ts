@@ -18,12 +18,14 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   dataSource: MeteotriteDataSource;
   displayedColumns: string[] = ['name', 'id', 'nametype', 'recclass', 'mass', 'fall', 'year', 'latitude', 'longitude'];
+  space = ' ';
 
   constructor(private appService: AppService) {}
 
   ngOnInit(): void {
+
     this.dataSource = new MeteotriteDataSource(this.appService);
-    this.dataSource.loadMeteotriteData('name', 0, 10);
+    this.dataSource.loadMeteotriteData(`name like "%%"`, 'name', 0, 10);
   }
 
   ngAfterViewInit(): void {
@@ -50,6 +52,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   loadMeteotriteDataPage() {
     this.dataSource.loadMeteotriteData(
+      `name like "%${this.input.nativeElement.value}%"`,
       'name',
       this.paginator.pageIndex,
       this.paginator.pageSize

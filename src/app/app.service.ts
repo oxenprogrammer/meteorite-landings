@@ -10,12 +10,14 @@ import { tap } from 'rxjs/operators';
 export class AppService {
 
   url = environment.serverURL;
+  space = ' ';
 
   constructor(private http: HttpClient) { }
 
-  getData(sortOrder = 'name', pageNumber = 0, pageSize = 100): Observable<any> {
+  getData(filter = `name like "%%"`, sortOrder = 'name', pageNumber = 0, pageSize = 100): Observable<any> {
     return this.http.get<any>(this.url, {
       params: new HttpParams()
+        .set('$where', filter)
         .set('$order', sortOrder)
         .set('$offset', pageNumber.toString())
         .set('$limit', pageSize.toString())
