@@ -57,13 +57,21 @@
     <!-- Latitude Column -->
     <ng-container matColumnDef="latitude">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Latitude </th>
-      <td mat-cell *matCellDef="let row"> {{row.geolocation.latitude}} </td>
+      <td mat-cell *matCellDef="let row">
+        <div *ngIf="row.geolocation">
+            {{row.geolocation.latitude}}
+        </div>
+       </td>
     </ng-container>
 
     <!-- Longitude Column -->
     <ng-container matColumnDef="longitude">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Longitude </th>
-      <td mat-cell *matCellDef="let row"> {{row.geolocation.longitude}} </td>
+      <td mat-cell *matCellDef="let row">
+          <div *ngIf="row.geolocation">
+         {{row.geolocation.longitude}}
+         </div>
+        </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
