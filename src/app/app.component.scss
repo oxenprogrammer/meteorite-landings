@@ -1,0 +1,31 @@
+h1 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 2rem;
+  color: #7985cb;
+}
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  display: flex;
+  align-content: center;
+  left: 45%;
+  text-align: center;
+  font-size: 14px;
+  width: 10%;
+}
+.mat-header-cell {
+  background: #f5b563;
+  font-size: 1rem;
+  color: #000000;
+}
+
+.search {
+  position: absolute;
+  border:2px solid #7985cb;
+  background-color:#7985cb;
+  color:#fafafa;
+}
