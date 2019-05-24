@@ -9,13 +9,17 @@ table {
   width: 100%;
 }
 
-.mat-form-field {
+form {
   display: flex;
   align-content: center;
-  left: 45%;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.mat-form-field {
   text-align: center;
   font-size: 14px;
-  width: 10%;
+  width: 40%;
 }
 .mat-header-cell {
   background: #f5b563;
@@ -24,8 +28,10 @@ table {
 }
 
 .search {
-  position: absolute;
   border:2px solid #7985cb;
   background-color:#7985cb;
   color:#fafafa;
+  height: 30px;
+  font-size: 1rem;
+  cursor: pointer;
 }
