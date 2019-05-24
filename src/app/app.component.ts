@@ -51,7 +51,7 @@ export class AppComponent implements OnInit, AfterViewInit {
                 this.loadMeteotriteDataPage();
             })
         )
-        .subscribe(value => console.log('ny value', value));
+        .subscribe();
 
     merge(this.sort.sortChange, this.paginator.page)
     .pipe(
@@ -62,7 +62,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   loadMeteotriteDataPage() {
     const formValue = this.searchForm.getRawValue();
-    console.log('input value', formValue.searchInput);
     this.dataSource.loadMeteotriteData(
       `lower(name ) like lower("%${formValue.searchInput}%")`,
       'name',

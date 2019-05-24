@@ -24,7 +24,6 @@ export class AppService {
     })
       .pipe(
         tap((data: any) => {
-          console.log('my data', data);
           return of(data);
         })
       );
@@ -34,7 +33,6 @@ export class AppService {
     return this.http.get<any>(this.url, {params: new HttpParams().set('$query', count)})
       .pipe(
         tap((data: any) => {
-          console.log('my count', data);
           return of(data);
         })
       );
