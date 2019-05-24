@@ -1,11 +1,23 @@
   <h1>
     {{ title }}
   </h1>
-  <mat-form-field>
+  <form [formGroup]="searchForm">
+    <mat-form-field class="example-full-width">
+      <input matInput formControlName="searchInput" placeholder="Search Meteotrite Name Here" #input>
+    </mat-form-field>
+    <button class="search" mat-raised-button color="primary" #myBtn>Search</button>
+  </form>
 
-      <input matInput placeholder="Search Meteotrite data" #input>
-
-  </mat-form-field>
+  <!-- <div class="container">
+    <form [formGroup]="searchForm">
+      <div class="input-group">
+        <input type="text" class="form-control" formControlName="searchInput" placeholder="Search Meteotrite Name Here">
+            <span class="input-group-btn">
+              <button class="btn btn-search" type="button" #myBtn><i class="fa fa-search fa-fw"></i> Search</button>
+            </span>
+      </div>
+    </form>
+  </div> -->
 
   <div class="mat-elevation-z8">
       <div class="spinner-container" *ngIf="dataSource.loading$ | async">
