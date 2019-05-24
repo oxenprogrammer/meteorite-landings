@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
   MatSortModule, MatTableModule, MatFormFieldModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { of } from 'rxjs';
 
 describe('AppComponent', () => {
@@ -13,6 +14,8 @@ describe('AppComponent', () => {
         HttpClientModule,
         MatTableModule,
         MatPaginatorModule,
+        FormsModule,
+        ReactiveFormsModule,
         MatFormFieldModule,
         MatProgressSpinnerModule,
         MatSortModule,
